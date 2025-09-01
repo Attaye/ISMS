@@ -1,0 +1,29 @@
+server:
+  port: 9000
+
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/auth_db
+    username: isms
+    password: isms
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.jdbc.lob.non_contextual_creation: true
+  liquibase:
+    enabled: false # set true if you add changelogs
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+security:
+  jwt:
+    issuer: "https://isms.local/auth"
+    kid: "isms-rsa-1"
+    key:
+      private: classpath:keys/private.pem
+      public: classpath:keys/public.pem

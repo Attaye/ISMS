@@ -1,0 +1,57 @@
+name: "isms"
+version: "3.9"
+services:
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: isms
+      POSTGRES_PASSWORD: isms
+    volumes:
+      - ./docker/initdb:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    networks: [ isms ]
+
+  auth-service:
+    build: ./auth-service
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on: [ postgres ]
+    networks: [ isms ]
+
+  asset-service:
+    build: ./asset-service
+    depends_on: [ postgres, auth-service ]
+    networks: [ isms ]
+
+  vulnerability-service:
+    build: ./vulnerability-service
+    depends_on: [ postgres, auth-service ]
+    networks: [ isms ]
+
+  mitigation-service:
+    build: ./mitigation-service
+    depends_on: [ postgres, auth-service ]
+    networks: [ isms ]
+
+  report-service:
+    build: ./report-service
+    depends_on: [ postgres, auth-service ]
+    networks: [ isms ]
+
+  log-service:
+    build: ./log-service
+    depends_on: [ postgres, auth-service ]
+    networks: [ isms ]
+
+  krakend:
+    build: ./gateway
+    ports:
+      - "8080:8080"
+    depends_on: [ auth-service, asset-service, vulnerability-service, mitigation-service, report-service, log-service ]
+    networks: [ isms ]
+
+networks:
+  isms: {}
+
