@@ -4,11 +4,27 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/asset" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/asset" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/asset-service" />
         <option name="gradleJvm" value="zulu-21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/asset-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/auth" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/auth" />
           </set>
         </option>
       </GradleProjectSettings>
@@ -22,11 +38,27 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/log" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/log" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/log-service" />
         <option name="gradleJvm" value="zulu-21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/log-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/mitigation" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/mitigation" />
           </set>
         </option>
       </GradleProjectSettings>
@@ -40,11 +72,27 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/report" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/report" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/report-service" />
         <option name="gradleJvm" value="zulu-21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/report-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/vulnerability" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/vulnerability" />
           </set>
         </option>
       </GradleProjectSettings>
