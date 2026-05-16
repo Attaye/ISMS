@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: auth-service
+
+  profiles:
+    # Default to 'dev' if no profile is explicitly set.
+    # Override with: SPRING_PROFILES_ACTIVE=docker
+    default: dev
+
+  # JPA settings shared across all environments
+  jpa:
+    open-in-view: false           # disable OSIV anti-pattern (perf + clarity)
+    properties:
+      hibernate:
+        format_sql: true          # nicer SQL in logs during dev
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+  # Liquibase will manage the schema, not Hibernate
+  jpa.hibernate.ddl-auto: validate
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+
+# Server config
+server:
+  port: 9001
+  error:
+    include-message: always
+    include-binding-errors: always
+
+# Actuator: expose only what's needed for health monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true             # K8s liveness/readiness probes
+      show-details: when-authorized
+
+# Logging
+logging:
+  level:
+    root: INFO
+    com.isms.auth: DEBUG          # your code at DEBUG
+    org.springframework.security: INFO

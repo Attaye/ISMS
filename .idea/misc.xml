@@ -3,13 +3,15 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/asset-service" />
-    <file type="web" url="file://$PROJECT_DIR$/auth-service" />
+    <file type="web" url="file://$PROJECT_DIR$/auth" />
+    <file type="web" url="file://$PROJECT_DIR$/Auth-Service" />
     <file type="web" url="file://$PROJECT_DIR$/log-service" />
     <file type="web" url="file://$PROJECT_DIR$/mitigation-service" />
     <file type="web" url="file://$PROJECT_DIR$/report-service" />
+    <file type="web" url="file://$PROJECT_DIR$/vulnerability" />
     <file type="web" url="file://$PROJECT_DIR$/vulnerability-service" />
   </component>
-  <component name="ProjectRootManager">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="zulu-21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

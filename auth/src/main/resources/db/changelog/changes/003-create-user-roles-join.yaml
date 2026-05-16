@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-create-user-roles-join
+      author: mustafa
+      comment: "Many-to-many: users ↔ roles"
+      changes:
+        - createTable:
+            tableName: user_roles
+            columns:
+              - column:
+                  name: user_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_user_roles_user
+                    references: users(id)
+                    deleteCascade: true
+              - column:
+                  name: role_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_user_roles_role
+                    references: roles(id)
+                    deleteCascade: true
+        - addPrimaryKey:
+            tableName: user_roles
+            columnNames: user_id, role_id
+            constraintName: pk_user_roles
+        - createIndex:
+            tableName: user_roles
+            indexName: idx_user_roles_role_id
+            columns:
+              - column:
+                  name: role_id
+      rollback:
+        - dropTable:
+            tableName: user_roles
